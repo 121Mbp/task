@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> TASKS </title>
+<link rel="stylesheet" type="text/css" href="resource/styles/app.css" />
+<link rel="stylesheet" type="text/css" href="resource/styles/circle.min.css" />
+</head>
+<body class="graph">
+<div id="TASK_UI">
+    <!-- layout -->
+    <div class="layout">
+        <div class="header">
+            <div class="inner">
+                <h1 class="logo"><a href="./"><img src="resource/images/ic_logo.png" alt="HIVE"></a></h1>
+                <span class="logo-sub">TASKS</span>
+                <!-- search autocomplete -->
+                <div class="search">
+                    <div class="widget">
+                        <div class="wrap">
+                            <button type="button" class="btn-back">
+                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                                </svg>
+                            </button>
+                            <input id="search" class="inp-search" placeholder="검색어를 입력해주세요.">
+                            <button type="button" class="btn-end">close</button>
+                            <button type="button" class="btn-search">
+                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="recommend"></div>
+                        <div id="searchElem" class="element"></div>
+                    </div>
+                </div>
+                <!-- //search autocomplete -->
+                <div class="employee">
+                    <div class="user">
+                        <p class="member">
+                            <span class="name">웹퍼블리싱파트</span>
+                        </p>
+                        <div class="layer overlay">
+                            <ul class="team"></ul>
+                            <ul class="setting">
+                                <li>
+                                    <span>설정</span>
+                                </li>
+                                <li>
+                                    <span>다크모드</span>
+                                    <input type="checkbox" id="switch" class="inp-switch" />
+                                    <label class="inp-label" for="switch">Toggle</label>
+                                </li>
+                                <li>
+                                    <span>머큐리모드</span>
+                                    <input type="checkbox" id="mercury" class="inp-mercury" />
+                                    <label class="inp-label" for="mercury">Toggle</label>
+                                </li>
+                                <li>
+                                    <span>차트 모드</span>
+                                    <input type="checkbox" id="graph" class="inp-graph" checked/>
+                                    <label class="inp-label" for="graph">Toggle</label>
+                                </li>
+                            </ul>
+                            <span class="bg-close"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="inner">
+                <div class="filter">
+                    <button type="button" class="button-chart">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" style="enable-background:new 0 0 30 30;" version="1.1" viewBox="0 0 30 30" xml:space="preserve"><path d="M26,26h-4V13c0-0.552,0.448-1,1-1h2c0.552,0,1,0.448,1,1V26z"/><path d="M20,26h-4v-9c0-0.552,0.448-1,1-1h2c0.552,0,1,0.448,1,1V26z"/><path d="M14,26h-4V15c0-0.552,0.448-1,1-1h2c0.552,0,1,0.448,1,1V26z"/><path d="M8,26H4v-7c0-0.552,0.448-1,1-1h2c0.552,0,1,0.448,1,1V26z"/><circle cx="24" cy="6" r="2"/><circle cx="18" cy="11" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="6" cy="12" r="2"/><polyline points="  6,12 12,8 18,11 24,6 " style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"/></svg>
+                    </button>
+                    <div class="select">
+                        <span class="value">History: <em>2019</em></span>
+                        <div class="layer history">
+                            <ul></ul>
+                            <span class="bg-close"></span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="tab">
+                    <li class="on"><span>All</span></li>
+                    <li><span>A company</span></li>
+                    <li><span>B company</span></li>
+                </ul>
+                <ul class="record">
+                    <li>
+                        <dl>
+                            <dt><span>Total</span><span>Tasks</span></dt>
+                            <dd>12</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt><span>Total</span><span>Pages</span></dt>
+                            <dd>100</dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div id="svg" class="svg"></div>
+            <ul class="dataset"></ul>
+            <div class="spot">
+                <div class="heading">
+                    <button type="button" class="btn-back">
+                        <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                        </svg>
+                    </button>
+                    <div class="title"><strong>DataLab.<span>2020년 Hive 프로모션</span></strong></div>
+                </div>
+                <ul class="menu-tab">
+                    <li class="on">게임사별 분포</li>
+                    <li>게임별 분포</li>
+                </ul>
+                <div class="article">
+                    <div class="slide">
+                        <div class="banner"></div>
+                        <div id="circle" class="circle"></div>
+                    </div>
+                    <div class="slide">
+                        <ul class="legend"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="inner">
+                <div class="table">
+                    <div class="thead">
+                        <div class="row">
+                            <span class="game">게임명</span>
+                            <span class="prod">프로모션명</span>
+                            <span class="company">게임사</span>
+                            <span class="type">형식</span>
+                            <span class="date">날짜 / 폴더</span>
+                            <span class="author">담당자</span>
+                            <div class="layer dropbox">
+                                <div class="wrapper">
+                                    <div class="checked">전체선택</div>
+                                    <ul></ul>
+                                    <span class="bg-close"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="tbody"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer inner">
+            <p class="copy">© Corp.</p>
+        </div>
+    </div>
+    <button type="button" class="button-top"></button>
+    <!-- //layout -->
+    <div class="loading"><div class="cssload-loading"><i></i><i></i><i></i></div></div>
+    <div class="error">
+        <div class="message">
+            <p class="desc">데이터를 가져 오지 못했습니다.<br />새로고침 해주세요.</p>
+        </div>
+    </div>
+    <div class="overlayer"></div>
+</div>
+<script type="text/javascript" src="resource/scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="resource/scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="resource/scripts/apexcharts.min.js"></script>
+<script type="text/javascript" src="resource/scripts/TweenMax.min.js"></script>
+<script type="text/javascript" src="resource/scripts/app.js"></script>
+<script type="text/javascript">
+    TASK_UI.init();
+</script>
+</body>
+</html>
