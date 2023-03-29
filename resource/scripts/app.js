@@ -1546,7 +1546,7 @@ TASK_UI = {
 
         $(_el.legendClass).empty();
 
-        $(_el.spotClass).find('.title strong').children().html(years + '년 - Hive 프로모션');
+        $(_el.spotClass).find('.title strong').children().html(years + '년 - 프로모션');
         
         var _pageCount;
         (_donutData[0] == undefined) ? _pageCount = 10 : _pageCount = _donutData[0].size + 10;
