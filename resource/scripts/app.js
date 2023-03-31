@@ -165,33 +165,7 @@ TASK_UI = {
                 }
             });
         },
-        promotions: function(_me){
-            $.ajax({
-                url: 'resource/scripts/database.json',
-                contentType: 'application/json; charset=utf-8',
-                type: 'GET',
-                success: function(data){
-                    var _game = _me.settings.array.gamesArr,
-                    _gamelength = _game.length;
-
-                    for(var i = 0; i < data.length; i++){
-                        for(var j = 0; j < _gamelength; j++){
-                            if(data[i].game.replace(/\s/g,'') == _game[j].name.replace(/\s/g,'')){
-                                data[i].code = _game[j].no;
-                                data[i].src = _game[j].src;
-                                data[i].product = _game[j].name;
-                                data[i].genre = _game[j].genre;
-                            }
-                        }
-                    }
-
-                    _me.settings.array.database = data;
-                },
-                error: function(err){
-                    $(_me.settings.element.errorClass).show();
-                }
-            });
-
+        promotions: function(_me){        
             $.ajax({
                 url: 'resource/scripts/database.json',
                 contentType: 'application/json; charset=utf-8',
@@ -231,7 +205,7 @@ TASK_UI = {
     },
     merge: function(data){
         var _me = this,
-            _json = $.merge(data, _me.settings.array.database);
+            _json = data;//$.merge(data, _me.settings.array.database);
         
         _me.history(_me.settings.years, _json);
         _me.search(_json);
