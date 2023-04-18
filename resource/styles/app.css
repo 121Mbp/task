@@ -383,7 +383,7 @@ body.graph .content .dataset {display:table;}
 body.mobile #TASK_UI {min-width:320px;}
 .mobile .inner {padding:16px;}
 .mobile .header {min-width:320px;padding:0 0 40px 0;}
-.mobile .header .logo {width:18px;}
+.mobile .header .logo {width:16px;margin:0;}
 .mobile .header .logo-sub {display:none;}
 .mobile .header .employee {right:16px;}
 .mobile .header .employee .user .member:after {transform:rotate(-90deg);-webkit-transform:rotate(-90deg);}
